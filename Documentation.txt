@@ -1,0 +1,62 @@
+****************************************************************************
+			FLUTTER
+****************************************************************************
+important sites:
+- https://material.io/develop/flutter/
+
+-----------------------------What is Flutter?------------------------------
+
+- is a UI toolkit that allows developers to design beautiful interfaces for all sorts of devices and screens.
+- comes with pre built widgets to layout ur app.
+- So, basically instead of building app in ios the ios way or in android the android way, we get variouspre defined widgets which helps us to create apps  without worrying about which platform we are working on.
+- creates native apps
+- Deploy anywhere
+
+----------------------------Why Flutter?-----------------------------------
+- One codebase
+- one place to debug
+- one place to update
+- simple and flexible layout system
+- hv access to original source code of flutter
+
+-----------------------Anatomy of Flutter App-------------------------------
+- evrything is a widget
+- build widgets on widgets
+- lets say we decide to create a brand new app:
+	1. scaffold -  blank screen for our app
+	 1.1. AppBar
+	 1.2. Container - containes the content of the app
+	  1.2.1. Column - to stack widgets vertically
+	   1.2.1.1 Row
+	    1.2.1.1.1 Text
+	    1.2.1.1.2 Icon
+	   1.2.1.2 Text
+- widget tree
+
+****************************************************************************
+			Creating a new App
+****************************************************************************
+- go to the directory
+- flutter create i_am_rich1
+
+****************************************************************************
+			I Am Rich App
+****************************************************************************
+- instead of MyApp - used MaterialApp
+- Most important thing to be presnt in materialApp is:
+	home - its where the entire content of the app will be present
+- add ',' after every parenthesis ie ')'
+- main is the starting point of all our apps
+	
+	import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      home: Center(
+        child: Text("Hello"),
+      ),
+    ),
+  );
+}
+			
