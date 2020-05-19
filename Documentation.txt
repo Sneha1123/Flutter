@@ -6,6 +6,7 @@ important sites:
 - https://appicon.co/
 - https://api.flutter.dev/
 - https://www.canva.com/
+- https://github.com/londonappbrewery/Flutter-Course-Resources
 
 -----------------------------What is Flutter?------------------------------
 
@@ -78,3 +79,40 @@ void main() {
 	- flutter packages get
 	
 ---------------------Design App using flutter layout widget----------------
+- Difference between hot reload or hot restart
+- Hot reload works if something present in stateless or statefull widget changed.
+- Stateless widget comes with a method called build which gets called whenever we create a new version of the widget...here MyApp.
+- Create a stateless widget named MyApp and move the materialApp code there and in main just mention the MyApp() and instead of returning just a container, we return the materialApp.
+
+
+
+	void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+    home: Scaffold(
+      body: Container(),
+      backgroundColor: Colors.teal,
+    ),
+  );
+  }
+}
+
+- Hot restart resets the state of the app.
+- Hot reload and hot restart only look at the changes that were made and pushes the changes to the testing device.
+
+--------------------How to use container widgets----------------------------
+- similar to a div
+- container with no children tries to be as big as possible.
+- its a single child layout widget
+- when a child is added, the container shrinks to the size of the child widget.
+- In order to keep the container away from the notch, time and other areas where it should not be, basically it should be in safe area - we use a widget called Safe Area and place the container inside it.
+- other properties of container:
+	height
+	width
+	margin - use EdgeInsets in order to use it - for outside of widget
+	padding - so that the child of the container gets its margin, use EdgeInsets - for inside of widget
