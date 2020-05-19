@@ -3,6 +3,8 @@
 ****************************************************************************
 important sites:
 - https://material.io/develop/flutter/
+- https://appicon.co/
+- https://api.flutter.dev/
 
 -----------------------------What is Flutter?------------------------------
 
@@ -59,4 +61,17 @@ void main() {
     ),
   );
 }
-			
+
+-------------------------Scaffolding an App-------------------------------	- appBar
+- background colour can be changed where is colors are provided by materialApp class and can be used as Colors.colorName
+
+-----------------------Adding asset and icon-------------------------------
+- https://appicon.co/ 
+ create app icon from here 
+- D:\Projects\Flutter\i_am_rich1\android\app\src\main\res
+	 replace all the midmap folder with the one created
+
+- for adding assets
+	- add assets location to yaml file - yaml follows indentation
+	- if have too many images just add the folder location followed by a  '/' in order to include evrything that is present in that folder.
+	
