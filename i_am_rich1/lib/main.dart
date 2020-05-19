@@ -8,6 +8,12 @@ void main() {
           title: Text("I am Rich"),
           backgroundColor: Colors.blueGrey,
         ),
+        backgroundColor: Colors.blueAccent,
+        body: Center(
+          child: Image(
+            image: AssetImage('images/diamond.png'),
+          ),
+        ),
       ),
     ),
   );

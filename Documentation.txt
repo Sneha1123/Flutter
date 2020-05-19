@@ -5,6 +5,7 @@ important sites:
 - https://material.io/develop/flutter/
 - https://appicon.co/
 - https://api.flutter.dev/
+- https://www.canva.com/
 
 -----------------------------What is Flutter?------------------------------
 
@@ -74,4 +75,6 @@ void main() {
 - for adding assets
 	- add assets location to yaml file - yaml follows indentation
 	- if have too many images just add the folder location followed by a  '/' in order to include evrything that is present in that folder.
+	- flutter packages get
 	
+---------------------Design App using flutter layout widget----------------
