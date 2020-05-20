@@ -2,11 +2,14 @@
 			FLUTTER
 ****************************************************************************
 important sites:
+- https://github.com/londonappbrewery/Flutter-Course-Resources
 - https://material.io/develop/flutter/
 - https://appicon.co/
 - https://api.flutter.dev/
 - https://www.canva.com/
 - https://github.com/londonappbrewery/Flutter-Course-Resources
+- https://fonts.google.com/
+- https://pub.dev/flutter/packages
 
 -----------------------------What is Flutter?------------------------------
 
@@ -77,10 +80,13 @@ void main() {
 	- add assets location to yaml file - yaml follows indentation
 	- if have too many images just add the folder location followed by a  '/' in order to include evrything that is present in that folder.
 	- flutter packages get
-	
+
+*************************************************************************
+			MI CARD
+**************************************************************************	
 ---------------------Design App using flutter layout widget----------------
 - Difference between hot reload or hot restart
-- Hot reload works if something present in stateless or statefull widget changed.
+- Hot reload works if something present in stateless or statefull widget changed, basically runs the build again... so if the changes are made inside build then it will be visible otherwise not
 - Stateless widget comes with a method called build which gets called whenever we create a new version of the widget...here MyApp.
 - Create a stateless widget named MyApp and move the materialApp code there and in main just mention the MyApp() and instead of returning just a container, we return the materialApp.
 
@@ -116,3 +122,74 @@ class MyApp extends StatelessWidget {
 	width
 	margin - use EdgeInsets in order to use it - for outside of widget
 	padding - so that the child of the container gets its margin, use EdgeInsets - for inside of widget
+
+-----------------------Use columns and rows widgets-----------------------
+- As container is single-child layout widget, we need something which can take multiple children
+- column has children as it can have a list of widgets 
+- Column tries to take as much as vertica space as possible and horizontally let it be according to the child - to change the vertical size so taht it takes the size of its child.
+	- mainAxisSize:mainAxisSize.min
+- can change the vertical direction as up or down where down is default.
+- can change the alignment from start to end to center
+- if wants the children to be spread out and not stick to one another - just use spaceEvenly in alignment.
+
+
+child: Column(
+            //mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //verticalDirection: VerticalDirection.down,
+            
+          
+            children: <Widget>[
+
+- In order to align the children horizontally use crossAlignment - will be useful if the children are of different width bcz if they are not then they are already aligned
+- if the children are of same size and u want to shift it to thr right most size then on ecan create an invisible container with infinite width and set the crossAlignment to end.
+	width:double.infinity
+- in order to stretch the children either u can make the width as infinite or just use the stretch property of crossAlignment
+
+- if wants spacing between the children then use sizedBox(height:10.0)
+
+- All this could be applied to rows also
+
+---------------------------MI CARD----------------------------------------
+- circleAvatar used
+- Google fonts and material icons used
+- card can be used instead of container - as it has its own padding and radius and all
+- card does not have a property called padding, although if u want to provide padding to the child then u can use - padding widget as the parent widget for the child...in this case row
+- inside card listTile widget can be used.
+
+****************************************************************************
+			DICE APP
+****************************************************************************
+- expanded class - if added as a parent to a row then it will take the max horizontal area and vertical in case of column. - prevents hard coding of width or height in order to adjust to the screen - basically prevents overflow.
+- in Expanded - u can take flex to provide flexibility
+- FlatButton with required onPressed property
+	onPressed(){
+	print('hello');
+}
+
+- use $ to access variables directly - called string interpolation
+- Dart is statically typed language - when we create a variable it will get a datatype and later we can change the data inside it as long as w dont chnge the data type.
+	- JS on the otherhand is dynamically typed language - allows chnge of datatype.
+- in order to create a dynamic datatype in dart, dont initialise the variable while declaration OR use dynamic keyword.
+
+---------------------Stateless and Stateful widgets------------------------
+- Stateless widget is immutable and hence any widget whose state changes needs to be placed under Stateful widget.
+- The exact piece of code where the change occurs needs to be placed inside setState() so that it calls the build again and the app gets re rendered.
+
+----------------------Randomising the variable------------------------------
+- using dart.math library
+	import 'dart:math'
+- Random number generator
+	leftDiceValue=Random().nextInt(6)+1;
+
+***************************************************************************
+			XYLOPHONE APP
+***************************************************************************
+- An app that plays audio.
+
+---------------Installing packages----------------------------------------
+- Dart packages are open source library of code written by others to provide certain kind of functionality.
+
+- get the dependency
+- install it using - flutter pub get
+- import it in the project
