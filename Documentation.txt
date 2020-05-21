@@ -10,6 +10,7 @@ important sites:
 - https://github.com/londonappbrewery/Flutter-Course-Resources
 - https://fonts.google.com/
 - https://pub.dev/flutter/packages
+- https://dart.dev/guides/libraries/library-tour#collections
 
 -----------------------------What is Flutter?------------------------------
 
@@ -204,3 +205,21 @@ return 5+2;
 SAME AS 
 
 int add() => 5+2;
+
+
+---------------------------Reduce size of release apk----------------------
+- flutter clean
+- flutter build apk --split-per-abi
+
+***************************************************************************
+			QUIZZER APP
+***************************************************************************
+------------------------Dart Lists-----------------------------------------
+- List<String> myList = ['a','j','l'];
+-myList.add;
+-myList[1];
+-myList.indexOf('a')
+-myList.insert(2,'bem')
+etc.
+
+-https://dart.dev/guides/libraries/library-tour#collections
