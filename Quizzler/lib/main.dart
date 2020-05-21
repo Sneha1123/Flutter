@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:Quizzler/questionBank.dart';
 
+QuestionBank quesBank=QuestionBank();
 void main() {
   runApp(MyApp());
 }
@@ -33,7 +35,8 @@ class QuizApp extends StatefulWidget {
 
 class _QuizAppState extends State<QuizApp> {
   List <Icon> scoreKeeper=[];
-  List <String> questions=[
+   int questionIndex=0;
+/*   List <String> questions=[
     'You only use 10% of your brain', //false
     'The Royal Family aren\'t allowed to play Monopoly', //false
     'In your lifetime, you\'ll produce enough saliva to fill two swimming pools.', //true
@@ -44,22 +47,59 @@ class _QuizAppState extends State<QuizApp> {
     'It\'s illegal to kill a fly in the Houses of Parliament',//false
     'In South Korea, you can only be a masseuse if you\'re blind or partially sighted', //true
     'Buzz Aldrin was the first person to urinate on moon' //true
-  ];
-  int questionIndex=0;
+  ]; */
+
+ /*  List <bool> answers=[
+    false,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    true,
+    true
+  ]; */
+ 
 
   //function to get the buttons
-  Expanded getButton({String value, Color color}){
+  Expanded getButton({String value, Color color, bool bValue}){
     return Expanded(
       flex: 2,
           child: FlatButton(
             color: color,
             onPressed: () {
+              var correctAnswer=quesBank.getAnswer();
+              if(correctAnswer == bValue){
+                setState(() {
+                   scoreKeeper.add(Icon(
+                  Icons.check,
+                  color: Colors.green,
+                  size: 25.0,)
+                );
+                });
+               }
+              else{
+                setState(() {
+                  scoreKeeper.add(Icon(
+                  Icons.close,
+                  color: Colors.red,
+                  size: 25.0,),);
+                });
+                
+              }
               setState(() {
-                questionIndex = questionIndex + 1;
+                
+               quesBank.questionsOver();
+                
               });
               
             },
-            child: Text(value),
+            child: Text(value,
+            style: TextStyle(
+              fontSize: 18.0
+            ),),
           ),
     );
   }
@@ -73,7 +113,7 @@ class _QuizAppState extends State<QuizApp> {
           flex: 12,
                   child: Center(
                     child: Text(
-                      questions[questionIndex],
+                      quesBank.getQuestion(),
                       textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 30.0,
@@ -84,17 +124,15 @@ class _QuizAppState extends State<QuizApp> {
           ),
                   ),
         ),
-        getButton(value:'True', color: Colors.green),
+        getButton(value:'True', color: Colors.green, bValue: true),
         SizedBox(
           height: 15.0,
         ),
-        getButton(value:'False', color: Colors.red),
+        getButton(value:'False', color: Colors.red, bValue: false),
         Expanded(
           
                   child: Row(
-            children: <Widget>[
-
-            ],
+            children: scoreKeeper
           ),
         ),
       ],

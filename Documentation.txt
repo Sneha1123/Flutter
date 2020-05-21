@@ -9,6 +9,7 @@ important sites:
 - https://www.canva.com/
 - https://github.com/londonappbrewery/Flutter-Course-Resources
 - https://fonts.google.com/
+- https://material.io/resources/icons/?style=baseline
 - https://pub.dev/flutter/packages
 - https://dart.dev/guides/libraries/library-tour#collections
 
