@@ -193,3 +193,14 @@ child: Column(
 - get the dependency
 - install it using - flutter pub get
 - import it in the project
+
+---------------------------Arrow functions-------------------------------
+- only for single line of code
+
+int add(){
+return 5+2;
+}
+
+SAME AS 
+
+int add() => 5+2;

@@ -9,65 +9,37 @@ class XylophoneApp extends StatelessWidget {
     final player = AudioCache();
     player.play('note$noteNumber.wav');
   }
+  Expanded createKeys({Color color, int noteNumber}){
+   return Expanded(
+              child: FlatButton(
+                color: color,
+                onPressed: (){
+                   getNote(noteNumber);
+              },
+              child:null
+              ),
+            );
+  }
   
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
-          child: Column(            
+          child: Column(  
+                      
             crossAxisAlignment: CrossAxisAlignment.stretch,
+           // mainAxisSize: MainAxisSize.max,
+            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-            FlatButton(
-          
-              color: Colors.red,
-              onPressed: (){
-                getNote(1);
-            },
-            child:null
-            ),
-            FlatButton(
-              color: Colors.orange,
-              onPressed: (){
-                 getNote(2);
-            },
-            child:null
-            ),
-            FlatButton(
-              color: Colors.yellow,
-              onPressed: (){
-                 getNote(3);
-            },
-            child:null
-            ),
-            FlatButton(
-              color: Colors.green,
-              onPressed: (){
-                 getNote(4);
-            },
-            child:null
-            ),
-            FlatButton(
-              color: Colors.blue,
-              onPressed: (){
-                 getNote(5);
-            },
-            child:null
-            ),
-            FlatButton(
-              color: Colors.indigo,
-              onPressed: (){
-                 getNote(6);
-            },
-            child:null
-            ),
-            FlatButton(
-              color: Colors.purple,
-              onPressed: (){
-                 getNote(7);
-            },
-            child:null
-            ),
+            createKeys(color:Colors.red, noteNumber: 1),
+            createKeys(color:Colors.orange, noteNumber: 2),
+            createKeys(color:Colors.yellow, noteNumber: 3),
+            createKeys(color:Colors.green, noteNumber: 4),
+            createKeys(color:Colors.blue, noteNumber: 5),
+            createKeys(color:Colors.indigo, noteNumber: 6),
+            createKeys(color:Colors.purple, noteNumber: 7),
             ],
           ),
         ),
