@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:Quizzler/questionBank.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 QuestionBank quesBank=QuestionBank();
 void main() {
@@ -34,8 +35,10 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
+  
   List <Icon> scoreKeeper=[];
    int questionIndex=0;
+   int score=0;
 /*   List <String> questions=[
     'You only use 10% of your brain', //false
     'The Royal Family aren\'t allowed to play Monopoly', //false
@@ -71,28 +74,42 @@ class _QuizAppState extends State<QuizApp> {
             color: color,
             onPressed: () {
               var correctAnswer=quesBank.getAnswer();
+              setState(() {
+               // bool quizValue=quesBank.quizOver();
+                if(quesBank.quizOver()==false){
               if(correctAnswer == bValue){
-                setState(() {
+                  score++;
                    scoreKeeper.add(Icon(
                   Icons.check,
                   color: Colors.green,
                   size: 25.0,)
                 );
-                });
+               
                }
               else{
-                setState(() {
+                
                   scoreKeeper.add(Icon(
                   Icons.close,
                   color: Colors.red,
                   size: 25.0,),);
-                });
+               
                 
               }
-              setState(() {
+              
                 
                quesBank.questionsOver();
+               } 
+               else{
+                 Alert(
+                   context: context, 
+                   title: "Quiz Over", 
+                   desc: "Your Score = $score",
                 
+                   ).show();
+                   quesBank.resetQuestion();
+                   scoreKeeper=[];
+                   score=0;
+               }
               });
               
             },

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:Quizzler/question.dart';
 
 class QuestionBank{
@@ -25,10 +24,22 @@ bool getAnswer(){
 }
 
 void questionsOver(){
-  if(_questionNum < _allQuestions.length-1){
+  //if(_questionNum < _allQuestions.length-1){
     _questionNum++;
-  }
+  //}
   
+}
+bool quizOver(){
+  if (_questionNum < _allQuestions.length-1){
+    return false;
+  }
+  else{
+    return true;
+  }
+}
+
+int resetQuestion(){
+  return _questionNum=0;
 }
 }
 
